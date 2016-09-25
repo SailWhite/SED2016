@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CircuitMania</string>
+    <string name="msg_help">帮助信息</string>
+    <string name="msg_about">关于信息</string>
 </resources>

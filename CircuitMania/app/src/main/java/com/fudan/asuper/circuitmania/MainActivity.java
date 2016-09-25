@@ -2,14 +2,18 @@ package com.fudan.asuper.circuitmania;
 
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetManager;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -68,20 +72,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mControlsView = findViewById(R.id.fullscreen_content_controls);
-        mContentView = findViewById(R.id.main);
+        mContentView = findViewById(R.id.fullscreen_content);
+
         findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 System.exit(0);
             }
         });
+        findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.main).setVisibility(View.INVISIBLE);
+                findViewById(R.id.mission_selecting).setVisibility(View.VISIBLE);
+            }
+        });
+
+        MissionSelectingManager missionSelectingManager=new MissionSelectingManager(this);
+        MessageManager messageManager=new MessageManager(this);
+        findViewById(R.id.help).setOnClickListener(messageManager.getHelpOnClickListener(R.string.msg_help));
+        findViewById(R.id.about).setOnClickListener(messageManager.getHelpOnClickListener(R.string.msg_about));
+        findViewById(R.id.option).setOnClickListener(messageManager.optionOnClickListener);
+
         Toast.makeText(MainActivity.this, "onCreate called", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(MainActivity.this, "onResume called", Toast.LENGTH_SHORT).show();
         hide();
     }
     @Override
@@ -94,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         delayedHide(100);
     }
 
-    private void hide() {
+    public void hide() {
         // Hide UI first
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -111,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
      * Schedules a call to hide() in [delay] milliseconds, canceling any
      * previously scheduled calls.
      */
-    private void delayedHide(int delayMillis) {
+    public void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }

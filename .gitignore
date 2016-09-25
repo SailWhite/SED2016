@@ -213,5 +213,7 @@ pip-log.txt
 *.mo
 
 #Mr Developer
-*/.idea/*
-*gradle*
+/.idea/
+*.gradle
+CircuitMania/app/src/main/res/layout/mission_selecting.xml
+CircuitMania/.idea/gradle.xml
