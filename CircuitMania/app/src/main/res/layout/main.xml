@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="horizontal"
+    android:id="@+id/main"
+    android:background="@drawable/face_mid"
+    android:visibility="visible">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.25"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/help"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/help" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/option"
+            android:layout_marginBottom="21dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/option" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/start"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/start" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.25"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/close"
+            android:id="@+id/close"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/about"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/about" />
+    </RelativeLayout>
+
+</LinearLayout>
