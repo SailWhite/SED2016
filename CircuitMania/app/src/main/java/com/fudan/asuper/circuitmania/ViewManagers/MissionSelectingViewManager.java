@@ -18,5 +18,6 @@ public final class MissionSelectingViewManager extends ViewManager {
     @Override
     public void initFunc() {
         view.findViewById(R.id.ms_back).setOnClickListener(view ->mainActivity.back());
+        view.findViewById(R.id.ms_1).setOnClickListener(view ->mainActivity.changeView(mainActivity.submissionViewManager.view));
     }
 }

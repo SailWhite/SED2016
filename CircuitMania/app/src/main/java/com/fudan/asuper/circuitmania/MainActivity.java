@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.fudan.asuper.circuitmania.ViewManagers.DesignerViewManager;
 import com.fudan.asuper.circuitmania.ViewManagers.MainViewManager;
 import com.fudan.asuper.circuitmania.ViewManagers.MessageViewManager;
 import com.fudan.asuper.circuitmania.ViewManagers.MissionSelectingViewManager;
+import com.fudan.asuper.circuitmania.ViewManagers.SubmissionViewManager;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     public MainViewManager mainViewManager;
     public MissionSelectingViewManager missionSelectingManager;
     public MessageViewManager messageManager;
+    public SubmissionViewManager submissionViewManager;
+    public DesignerViewManager designerViewManager;
     public View mControlsView;
     public FrameLayout mContentView;
     public State state;
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         mainViewManager=new MainViewManager(this);
         missionSelectingManager=new MissionSelectingViewManager(this);
         messageManager=new MessageViewManager(this);
+        designerViewManager=new DesignerViewManager(this);
+        submissionViewManager=new SubmissionViewManager(this);
     }
 
     @Override

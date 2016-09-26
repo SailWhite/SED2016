@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_hd">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/back"
+                android:id="@+id/dn_back"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/submit"
+                android:id="@+id/dn_submit"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/help"
+                android:id="@+id/dn_help"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:color/black"
+            android:id="@+id/imageView" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/undo"
+                android:id="@+id/dn_undo"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/redo"
+                android:id="@+id/dn_redo"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/close"
+                android:id="@+id/dn_remove"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/addline"
+                android:id="@+id/dn_link"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/remove"
+                android:id="@+id/dn_clear"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        app:srcCompat="@android:color/black"
+        android:id="@+id/imageView2" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></LinearLayout>
+
+        <ImageView
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:color/black"
+            android:id="@+id/imageView3" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+    </LinearLayout>
+</LinearLayout>

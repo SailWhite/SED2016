@@ -37,7 +37,7 @@ public final class MessageViewManager extends ViewManager {
         msg_text.setTypeface(tf);
     }
 
-    public void show_help_msg(int msg_id) {
+    public void show_text_msg(int msg_id) {
         msg_text.setText(res.getString(msg_id));
         msg_content.removeAllViews();
         msg_content.addView(msg_text);

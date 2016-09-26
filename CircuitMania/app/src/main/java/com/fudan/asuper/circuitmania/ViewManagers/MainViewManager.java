@@ -20,8 +20,8 @@ public class MainViewManager extends ViewManager {
     public void initFunc() {
         view.findViewById(R.id.close).setOnClickListener(view -> {System.exit(0);Log.d("","asdewq");});
         view.findViewById(R.id.start).setOnClickListener(view -> mainActivity.changeView(mainActivity.missionSelectingManager.view));
-        view.findViewById(R.id.help).setOnClickListener(view -> mainActivity.messageManager.show_help_msg(R.string.msg_help));
-        view.findViewById(R.id.about).setOnClickListener(view -> mainActivity.messageManager.show_help_msg(R.string.msg_about));
+        view.findViewById(R.id.help).setOnClickListener(view -> mainActivity.messageManager.show_text_msg(R.string.msg_help));
+        view.findViewById(R.id.about).setOnClickListener(view -> mainActivity.messageManager.show_text_msg(R.string.msg_about));
         view.findViewById(R.id.option).setOnClickListener(view -> mainActivity.messageManager.show_option_msg());
     }
 }
