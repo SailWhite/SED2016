@@ -19,14 +19,13 @@ import com.fudan.asuper.circuitmania.R;
 public final class MessageViewManager extends ViewManager {
     Resources res;
     FrameLayout msg_content;
-    TextView msg_text;
-    View msg_opt;
+    View msg_opt,msg_text;
     public MessageViewManager(final MainActivity mainActivity){
         super(mainActivity,R.layout.message);
         res = mainActivity.getResources();
         msg_content=(FrameLayout)view.findViewById(R.id.msg_content);
         msg_opt=mainActivity.inflater.inflate(R.layout.msg_opt,null);
-        msg_text=(TextView)mainActivity.inflater.inflate(R.layout.msg_text,null);
+        msg_text=mainActivity.inflater.inflate(R.layout.msg_text,null);
         initFont();
     }
 
@@ -34,11 +33,11 @@ public final class MessageViewManager extends ViewManager {
         AssetManager mgr=mainActivity.getAssets();
         Typeface tf=Typeface.createFromAsset(mgr, "fonts/xjlFont.fon");
         ((TextView)msg_opt.findViewById(R.id.msg_username)).setTypeface(tf);
-        msg_text.setTypeface(tf);
+        ((TextView)msg_text.findViewById(R.id.msg_text_content)).setTypeface(tf);
     }
 
     public void show_text_msg(int msg_id) {
-        msg_text.setText(res.getString(msg_id));
+        ((TextView)msg_text.findViewById(R.id.msg_text_content)).setText(res.getString(msg_id));
         msg_content.removeAllViews();
         msg_content.addView(msg_text);
         mainActivity.mContentView.addView(view);
