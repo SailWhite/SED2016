@@ -215,5 +215,4 @@ pip-log.txt
 #Mr Developer
 /.idea/
 *.gradle
-CircuitMania/app/src/main/res/layout/mission_selecting.xml
 CircuitMania/.idea/gradle.xml
