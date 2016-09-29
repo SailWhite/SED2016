@@ -2,4 +2,15 @@
     <string name="app_name">CircuitMania</string>
     <string name="msg_help">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的帮助信息</string>
     <string name="msg_about">关于信息</string>
+    <string name="notgate_in">输入</string>
+    <string name="notgate_out">输出</string>
+    <string name="andgate_a">a</string>
+    <string name="andgate_b">b</string>
+    <string name="andgate_out">输出</string>
+    <string name="orgate_a">a</string>
+    <string name="orgate_b">b</string>
+    <string name="orgate_out">输出</string>
+    <string name="xorgate_a">a</string>
+    <string name="xorgate_b">b</string>
+    <string name="xorgate_out">输出</string>
 </resources>

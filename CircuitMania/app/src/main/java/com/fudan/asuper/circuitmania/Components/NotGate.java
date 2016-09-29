@@ -7,8 +7,15 @@ import com.fudan.asuper.circuitmania.R;
  */
 
 public class NotGate extends Component {
+    public NotGate() {
+        super();
+        iconId=R.drawable.not_gate;
+    }
+
     @Override
     public void update() {
-        output.put(R.integer.notgate_out, (R.integer.notgate_in==0)?1:0);
+        super.update();
+        int in=inputComonent.get(R.string.notgate_in).getOutput(inputPort.get(R.string.notgate_in));
+        output.put(R.string.notgate_out, in==0?1:0);
     }
 }
