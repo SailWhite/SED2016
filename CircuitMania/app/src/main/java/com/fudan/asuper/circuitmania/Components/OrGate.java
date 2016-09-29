@@ -10,6 +10,11 @@ public class OrGate extends Component {
     public OrGate() {
         super();
         iconId=R.drawable.or_gate;
+        inputPort.put(R.string.orgate_a,0);
+        inputPort.put(R.string.orgate_b,0);
+        output.put(R.string.orgate_out,0);
+        priorityId=R.integer.priority_or;
+        descriptionID=R.string.orgate_desc;
     }
 
     @Override

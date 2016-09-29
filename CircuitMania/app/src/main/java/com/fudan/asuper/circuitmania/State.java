@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -15,7 +17,7 @@ public class State {
     public int mission,submission;
     public String username;
     public Stack<View> pages;
-    public Stack<Circuit> circuits;
+    public Map<Integer, Stack<Circuit>> circuits;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
 
@@ -30,7 +32,7 @@ public class State {
         username=preferences.getString("username","");
         if(username==null)username="";
         pages=new Stack<>();
-        circuits=new Stack<>();
+        circuits=new HashMap<>();
     }
 
     public void save() {

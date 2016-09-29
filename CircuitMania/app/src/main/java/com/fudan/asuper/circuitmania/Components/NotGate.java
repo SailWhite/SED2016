@@ -10,6 +10,10 @@ public class NotGate extends Component {
     public NotGate() {
         super();
         iconId=R.drawable.not_gate;
+        inputPort.put(R.string.notgate_in,0);
+        output.put(R.string.notgate_out,0);
+        priorityId=R.integer.priority_not;
+        descriptionID=R.string.notgate_desc;
     }
 
     @Override

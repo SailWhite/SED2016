@@ -10,6 +10,11 @@ public class XorGate extends Component {
     public XorGate() {
         super();
         iconId=R.drawable.xor_gate;
+        inputPort.put(R.string.xorgate_a,0);
+        inputPort.put(R.string.xorgate_b,0);
+        output.put(R.string.xorgate_out,0);
+        priorityId=R.integer.priority_xor;
+        descriptionID=R.string.xogate_desc;
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.fudan.asuper.circuitmania;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public View mControlsView;
     public FrameLayout mContentView;
     public State state;
+    public Resources res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         mContentView = (FrameLayout) findViewById(R.id.fullscreen_content);
         inflater = getLayoutInflater();
         state=new State(this);
+        res = getResources();
         mainViewManager=new MainViewManager(this);
         missionSelectingManager=new MissionSelectingViewManager(this);
         messageManager=new MessageViewManager(this);
-        designerViewManager=new DesignerViewManager(this);
         submissionViewManager=new SubmissionViewManager(this);
     }
 

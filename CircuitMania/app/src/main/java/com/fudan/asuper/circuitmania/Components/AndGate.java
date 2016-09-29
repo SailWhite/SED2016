@@ -10,6 +10,11 @@ public class AndGate extends Component {
     public AndGate() {
         super();
         iconId=R.drawable.and_gate;
+        inputPort.put(R.string.andgate_a,0);
+        inputPort.put(R.string.andgate_b,0);
+        output.put(R.string.andgate_out,0);
+        priorityId=R.integer.priority_and;
+        descriptionID=R.string.andgate_desc;
     }
 
     @Override

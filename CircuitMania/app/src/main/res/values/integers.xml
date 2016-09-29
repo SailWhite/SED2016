@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer name="priority_none">0</integer>
+    <integer name="priority_not">0</integer>
+    <integer name="priority_or">100</integer>
+    <integer name="priority_and">200</integer>
+    <integer name="priority_xor">300</integer>
 
+    <integer name="dn_stt_compsltd">300</integer>
 </resources>
