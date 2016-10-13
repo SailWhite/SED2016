@@ -6,5 +6,7 @@
     <integer name="priority_and">200</integer>
     <integer name="priority_xor">300</integer>
 
-    <integer name="dn_stt_compsltd">300</integer>
+    <integer name="dn_stt_none">0</integer>
+    <integer name="dn_stt_compsltd">1</integer>
+    <integer name="dn_stt_remove">10</integer>
 </resources>
