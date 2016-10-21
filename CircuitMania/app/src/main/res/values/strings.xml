@@ -13,12 +13,15 @@
     <string name="andgate_desc">AND</string>
 
     <string name="orgate_a">a</string>
-    <string name="orgate_b">b</string>
-    <string name="orgate_out">输出</string>
-    <string name="orgate_desc">OR</string>
+<string name="orgate_b">b</string>
+<string name="orgate_out">输出</string>
+<string name="orgate_desc">OR</string>
 
     <string name="xorgate_a">a</string>
     <string name="xorgate_b">b</string>
     <string name="xorgate_out">输出</string>
     <string name="xogate_desc">XOR</string>
+
+    <string name="in_desc">XOR</string>
+    <string name="out_desc">XOR</string>
 </resources>
