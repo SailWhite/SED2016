@@ -1,8 +1,11 @@
 package com.fudan.asuper.circuitmania;
 
 import com.fudan.asuper.circuitmania.Components.Component;
+import com.fudan.asuper.circuitmania.Components.InPort;
+import com.fudan.asuper.circuitmania.Components.OutPort;
 
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 /**
@@ -29,14 +32,31 @@ public class Judger {
         this.mainActivity=mainActivity;
     }
 
+
+
     /**
-     *
-     * @param inputs map of input potr id, input component of the design
+     * For combinational circuit only
+     * @param inport input component of the design
      * @param components
-     * @param outputs map of output potr id, output component of the design
+     * @param outport output component of the design
      * @return
      */
-    public Result judge(Map<Integer, Component> inputs, Set<Component> components, Map<Integer, Component> outputs) {
-        return new Result(true,0,2,"Test Accepted!");
+    public Result judg1e(Component standard, InPort inport, Set<Component> components, OutPort outport) {
+        Random random=new Random();
+        for(int i=0;i<10;i++) {
+            for(Integer id:inport.output.keySet()) {
+                inport.output.put(id, random.nextBoolean() ? 1 : 0);
+                standard.setPort(id, inport, id);
+            }
+            standard.update();
+            inport.isOnTime=true;
+            outport.update();
+        }
+        for (Integer id:outport.inputComonent.keySet()) {
+            if (outport.inputComonent.get(id).output.get(outport.inputPort.get(id)) != standard.output.get(id)) {
+                return new Result(false,0,0,"Wrong Answer!");
+            }
+        }
+        return new Result(true,0,3,"Accepted!");
     }
 }
