@@ -102,8 +102,8 @@ public class DesignerViewManager extends ViewManager {
                         iv.setLayoutParams(new AbsoluteLayout.LayoutParams(
                                 AbsoluteLayout.LayoutParams.WRAP_CONTENT,
                                 AbsoluteLayout.LayoutParams.WRAP_CONTENT,
-                                x - canvas.getLeft(),
-                                y - canvas.getTop()));
+                                x - canvas.getLeft() - 120,
+                                y - canvas.getTop() - 300));
                         canvas.addView(iv);
                         gotoStt(R.integer.dn_stt_none,null);
                     }
