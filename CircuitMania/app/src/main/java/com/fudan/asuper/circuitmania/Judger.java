@@ -25,6 +25,11 @@ public class Judger {
             this.star=star;
             this.message=message;
         }
+
+        @Override
+        public String toString() {
+            return message;
+        }
     }
 
     public final MainActivity mainActivity;
@@ -41,7 +46,8 @@ public class Judger {
      * @param outport output component of the design
      * @return
      */
-    public Result judg1e(Component standard, InPort inport, Set<Component> components, OutPort outport) {
+    public Result judge(Component standard, InPort inport, Set<Component> components, OutPort outport) {
+        //return new Result(true,0,3,"Accepted!");
         Random random=new Random();
         for(int i=0;i<10;i++) {
             for(Integer id:inport.output.keySet()) {

@@ -22,6 +22,6 @@
     <string name="xorgate_out">输出</string>
     <string name="xogate_desc">XOR</string>
 
-    <string name="in_desc">XOR</string>
-    <string name="out_desc">XOR</string>
+    <string name="in_desc">IN</string>
+    <string name="out_desc">OUT</string>
 </resources>

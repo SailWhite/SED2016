@@ -9,9 +9,17 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.fudan.asuper.circuitmania.Components.Component;
+import com.fudan.asuper.circuitmania.Components.InPort;
+import com.fudan.asuper.circuitmania.Components.NotGate;
+import com.fudan.asuper.circuitmania.Components.OrGate;
+import com.fudan.asuper.circuitmania.Components.OutPort;
+import com.fudan.asuper.circuitmania.Judger;
 import com.fudan.asuper.circuitmania.MainActivity;
 import com.fudan.asuper.circuitmania.Missions.Mission;
 import com.fudan.asuper.circuitmania.R;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by SailW on 2016/9/26.
@@ -37,6 +45,23 @@ public class DesignerViewManager extends ViewManager {
         view.findViewById(R.id.dn_back).setOnClickListener(view ->mainActivity.back());
         view.findViewById(R.id.dn_help).setOnClickListener(view ->mainActivity.messageManager.show_text_msg(mission.standardComponent.descriptionID));
         view.findViewById(R.id.dn_remove).setOnClickListener(view->gotoStt(R.integer.dn_stt_remove, view.findViewById(R.id.dn_remove)));
+        view.findViewById(R.id.dn_submit).setOnClickListener(view->{
+            InPort inPort=new InPort(mission.standardComponent);
+            OutPort outPort=new OutPort(mission.standardComponent);
+            Set<Component> components=new HashSet<Component>();
+            NotGate notGate0=new NotGate();
+            NotGate notGate1=new NotGate();
+            OrGate orGate=new OrGate();
+            NotGate notGate=new NotGate();
+            notGate0.setPort(R.string.notgate_in,inPort,R.string.andgate_a);
+            notGate1.setPort(R.string.notgate_in,inPort,R.string.andgate_b);
+            orGate.setPort(R.string.orgate_a,notGate0,R.string.notgate_out);
+            orGate.setPort(R.string.orgate_b,notGate1,R.string.notgate_out);
+            notGate.setPort(R.string.notgate_in,orGate,R.string.orgate_out);
+            outPort.setPort(R.string.andgate_out,notGate,R.string.notgate_out);
+            Judger judger=new Judger(this.mainActivity,0);
+            mainActivity.messageManager.show_text_msg(judger.judge(mission.standardComponent,inPort,components,outPort).toString());
+        });
     }
 
     private void gotoStt(int sttid,View v) {
