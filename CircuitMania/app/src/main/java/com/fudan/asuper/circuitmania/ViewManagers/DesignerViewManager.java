@@ -8,17 +8,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.fudan.asuper.circuitmania.Components.AndGate;
 import com.fudan.asuper.circuitmania.Components.Component;
 import com.fudan.asuper.circuitmania.Components.InPort;
 import com.fudan.asuper.circuitmania.Components.NotGate;
 import com.fudan.asuper.circuitmania.Components.OrGate;
 import com.fudan.asuper.circuitmania.Components.OutPort;
+import com.fudan.asuper.circuitmania.DrawLayout;
 import com.fudan.asuper.circuitmania.Judger;
 import com.fudan.asuper.circuitmania.MainActivity;
 import com.fudan.asuper.circuitmania.Missions.Mission;
 import com.fudan.asuper.circuitmania.R;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -28,16 +32,21 @@ import java.util.Set;
 public class DesignerViewManager extends ViewManager {
     String missionName="ms_1_1";
     Mission mission;
-    Component currentComponent;
+    Component currentComponent, outComp;
     View sltdView;
     int stt;
     AbsoluteLayout canvas;
+    public Map<View,Component> mapvc=new HashMap<>();
+    public Map<Component,View> mapcv=new HashMap<>();
+    InPort inPort=null;
+    OutPort outPort=null;
 
     public DesignerViewManager(MainActivity mainActivity, Mission mission) {
         super(mainActivity, R.layout.designer);
         this.mission=mission;
         initCompBox();
         initCanvas();
+        ((DrawLayout)view.findViewById(R.id.dn_canvas)).designerViewManager=this;
     }
 
     @Override
@@ -62,6 +71,7 @@ public class DesignerViewManager extends ViewManager {
             Judger judger=new Judger(this.mainActivity,0);
             mainActivity.messageManager.show_text_msg(judger.judge(mission.standardComponent,inPort,components,outPort).toString());
         });
+        view.findViewById(R.id.dn_link).setOnClickListener(view->gotoStt(R.integer.dn_stt_link0, view.findViewById(R.id.dn_link)));
     }
 
     private void gotoStt(int sttid,View v) {
@@ -99,8 +109,25 @@ public class DesignerViewManager extends ViewManager {
                 break;
             case MotionEvent.ACTION_UP:
                 if(stt==R.integer.dn_stt_remove) {
+                    Component r=mapvc.get(v);
+                    mapvc.remove(v);
+                    for(Component c:mapvc.values()) {
+                        for(Integer pid:c.inputComonent.keySet()) {
+                            if(c.inputComonent.get(pid)==r)c.inputComonent.put(pid,null);
+                        }
+                    }
+                    mapcv.remove(r);
+
                     canvas.removeView(v);
                     gotoStt(R.integer.dn_stt_none,null);
+                }
+                if(stt==R.integer.dn_stt_link1 && outComp!=mapvc.get(v)) {
+                    mainActivity.messageManager.show_port_msg(outComp, mapvc.get(v));
+                    gotoStt(R.integer.dn_stt_none,null);
+                }
+                if(stt==R.integer.dn_stt_link0) {
+                    outComp=mapvc.get(v);
+                    stt=R.integer.dn_stt_link1;
                 }
                 break;
         }
@@ -122,7 +149,11 @@ public class DesignerViewManager extends ViewManager {
                         ImageView iv=new ImageView(mainActivity);
                         iv.setImageResource(currentComponent.iconId);
                         iv.setOnTouchListener((v, e) ->{return this._onTouch(v, e);});
-
+                        try {
+                            Component component=currentComponent.getClass().newInstance();
+                            mapvc.put(iv,component);
+                            mapcv.put(component,iv);
+                        } catch (InstantiationException|IllegalAccessException e) {}
                         //控制摆放初始位置的坐标
                         iv.setLayoutParams(new AbsoluteLayout.LayoutParams(
                                 AbsoluteLayout.LayoutParams.WRAP_CONTENT,

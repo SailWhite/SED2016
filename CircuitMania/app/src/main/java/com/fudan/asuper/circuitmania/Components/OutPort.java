@@ -13,7 +13,7 @@ public class OutPort extends Component {
         this.component=component;
         iconId= R.drawable.out_port;
         for(Integer port:component.output.keySet()) {
-            output.put(port,0);
+            inputPort.put(port,0);
         }
 
         priorityId=R.integer.priority_none;

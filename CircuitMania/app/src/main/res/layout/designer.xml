@@ -119,12 +119,12 @@
             app:srcCompat="@android:color/black"
             android:id="@+id/imageView3" />
 
-        <AbsoluteLayout
+        <com.fudan.asuper.circuitmania.DrawLayout
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/dn_canvas"
             android:layout_weight="2"
-            ></AbsoluteLayout>
+            ></com.fudan.asuper.circuitmania.DrawLayout>
     </LinearLayout>
 </LinearLayout>
