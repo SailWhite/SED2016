@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         state=new State(this);
         res = getResources();
         mainViewManager=new MainViewManager(this);
-        missionSelectingManager=new MissionSelectingViewManager(this);
         messageManager=new MessageViewManager(this);
+        missionSelectingManager=new MissionSelectingViewManager(this);
         submissionViewManager=new SubmissionViewManager(this);
     }
 

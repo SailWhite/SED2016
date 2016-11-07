@@ -38,14 +38,16 @@ public class DesignerViewManager extends ViewManager {
     AbsoluteLayout canvas;
     public Map<View,Component> mapvc=new HashMap<>();
     public Map<Component,View> mapcv=new HashMap<>();
-    InPort inPort=null;
-    OutPort outPort=null;
+    InPort inPort;
+    OutPort outPort;
 
     public DesignerViewManager(MainActivity mainActivity, Mission mission) {
         super(mainActivity, R.layout.designer);
         this.mission=mission;
         initCompBox();
         initCanvas();
+        inPort=new InPort(mission.standardComponent);
+        outPort=new OutPort(mission.standardComponent);
         ((DrawLayout)view.findViewById(R.id.dn_canvas)).designerViewManager=this;
     }
 
@@ -55,7 +57,7 @@ public class DesignerViewManager extends ViewManager {
         view.findViewById(R.id.dn_help).setOnClickListener(view ->mainActivity.messageManager.show_text_msg(mission.standardComponent.descriptionID));
         view.findViewById(R.id.dn_remove).setOnClickListener(view->gotoStt(R.integer.dn_stt_remove, view.findViewById(R.id.dn_remove)));
         view.findViewById(R.id.dn_submit).setOnClickListener(view->{
-            InPort inPort=new InPort(mission.standardComponent);
+            /*InPort inPort=new InPort(mission.standardComponent);
             OutPort outPort=new OutPort(mission.standardComponent);
             Set<Component> components=new HashSet<Component>();
             NotGate notGate0=new NotGate();
@@ -67,9 +69,9 @@ public class DesignerViewManager extends ViewManager {
             orGate.setPort(R.string.orgate_a,notGate0,R.string.notgate_out);
             orGate.setPort(R.string.orgate_b,notGate1,R.string.notgate_out);
             notGate.setPort(R.string.notgate_in,orGate,R.string.orgate_out);
-            outPort.setPort(R.string.andgate_out,notGate,R.string.notgate_out);
+            outPort.setPort(R.string.andgate_out,notGate,R.string.notgate_out);*/
             Judger judger=new Judger(this.mainActivity,0);
-            mainActivity.messageManager.show_text_msg(judger.judge(mission.standardComponent,inPort,components,outPort).toString());
+            mainActivity.messageManager.show_text_msg(judger.judge(mission.standardComponent,inPort,mapcv.keySet(),outPort).toString());
         });
         view.findViewById(R.id.dn_link).setOnClickListener(view->gotoStt(R.integer.dn_stt_link0, view.findViewById(R.id.dn_link)));
     }
@@ -150,7 +152,14 @@ public class DesignerViewManager extends ViewManager {
                         iv.setImageResource(currentComponent.iconId);
                         iv.setOnTouchListener((v, e) ->{return this._onTouch(v, e);});
                         try {
-                            Component component=currentComponent.getClass().newInstance();
+                            Component component;
+                            if(currentComponent instanceof InPort) {
+                                component=inPort;
+                            } else if(currentComponent instanceof OutPort) {
+                                component=outPort;
+                            } else {
+                                component=currentComponent.getClass().newInstance();
+                            }
                             mapvc.put(iv,component);
                             mapcv.put(component,iv);
                         } catch (InstantiationException|IllegalAccessException e) {}

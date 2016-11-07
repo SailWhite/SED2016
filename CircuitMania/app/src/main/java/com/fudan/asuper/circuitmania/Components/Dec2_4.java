@@ -3,13 +3,13 @@ package com.fudan.asuper.circuitmania.Components;
 import com.fudan.asuper.circuitmania.R;
 
 /**
- * Created by SailW on 2016/9/29.
+ * Created by SailW on 2016/11/8.
  */
 
-public class XorGate extends Component {
+public class Dec2_4 extends Component {
     public XorGate() {
         super();
-        iconId=R.drawable.xor_gate;
+        iconId= R.drawable.xor_gate;
         inputPort.put(R.string.xorgate_a,0);
         inputPort.put(R.string.xorgate_b,0);
         output.put(R.string.xorgate_out,0);

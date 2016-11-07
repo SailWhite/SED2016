@@ -74,6 +74,7 @@ public final class MessageViewManager extends ViewManager {
         ll0.removeAllViews();
         ll1.removeAllViews();
         Map<Integer,TextView> map=new HashMap<>();
+
         for(Integer pid:c1.output.keySet()) {
             TextView tv=new TextView(mainActivity);
             tv.setText(mainActivity.res.getString(pid));
@@ -88,7 +89,6 @@ public final class MessageViewManager extends ViewManager {
                 ret[0]=pid;
                 tv.setBackgroundColor(mainActivity.res.getColor(R.color.colorSltd));
             });
-            System.out.println(pid);
         }
         for(Integer pid:c2.inputPort.keySet()) {
             TextView tv=new TextView(mainActivity);
@@ -104,7 +104,6 @@ public final class MessageViewManager extends ViewManager {
                 ret[1]=pid;
                 tv.setBackgroundColor(mainActivity.res.getColor(R.color.colorSltd));
             });
-            System.out.println(pid);
         }
         msg_content.removeAllViews();
         msg_content.addView(msg_port);

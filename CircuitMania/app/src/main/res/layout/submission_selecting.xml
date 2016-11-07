@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,10 +30,34 @@
         android:layout_height="match_parent"
         android:weightSum="3">
 
-        <Space
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/nor_gate"
+                android:id="@+id/sms_1_1"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/and_gate"
+                android:id="@+id/sms_1_2"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/nand_gate"
+                android:id="@+id/sms_1_3"
+                android:layout_weight="1"/>
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -42,27 +66,55 @@
             android:layout_weight="1"
             android:weightSum="3">
 
-            <Space
+            <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                app:srcCompat="@drawable/xor_gate"
+                android:id="@+id/sms_1_4"
+                android:layout_weight="1"/>
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/and_gate"
-                android:id="@+id/sms_1_1"
+                app:srcCompat="@drawable/xnor_gate"
+                android:id="@+id/sms_1_5"
                 android:layout_weight="1"/>
 
-            <Space
+            <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                app:srcCompat="@drawable/full_adder"
+                android:id="@+id/sms_1_6"
+                android:layout_weight="1"/>
         </LinearLayout>
 
-        <Space
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/mux1-2"
+                android:id="@+id/sms_1_7"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/enc2-4"
+                android:id="@+id/sms_1_8"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/dec2-4"
+                android:id="@+id/sms_1_9"
+                android:layout_weight="1"/>
+        </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

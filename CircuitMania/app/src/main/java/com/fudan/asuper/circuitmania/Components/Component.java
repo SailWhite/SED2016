@@ -15,6 +15,8 @@ public abstract class Component {
         components=new ArrayList<>();
         components.add(new NotGate());
         components.add(new OrGate());
+        components.add(new XorGate());
+        components.add(new AndGate());
         components.add(new InPort(new NotGate()));
         components.add(new OutPort(new NotGate()));
     }
