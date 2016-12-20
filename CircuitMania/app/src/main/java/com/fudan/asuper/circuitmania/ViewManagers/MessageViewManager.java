@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fudan.asuper.circuitmania.Components.Component;
+import com.fudan.asuper.circuitmania.Judger;
 import com.fudan.asuper.circuitmania.MainActivity;
 import com.fudan.asuper.circuitmania.R;
 
@@ -26,8 +27,7 @@ import java.util.function.Function;
 
 public final class MessageViewManager extends ViewManager {
     FrameLayout msg_content;
-    View msg_opt,msg_text,msg_port;
-    Consumer<Object> onBack=null;
+    View msg_opt,msg_text,msg_port,msg_judge;
     Typeface tf;
 
     public MessageViewManager(final MainActivity mainActivity){
@@ -36,6 +36,7 @@ public final class MessageViewManager extends ViewManager {
         msg_opt=mainActivity.inflater.inflate(R.layout.msg_opt,null);
         msg_text=mainActivity.inflater.inflate(R.layout.msg_text,null);
         msg_port=mainActivity.inflater.inflate(R.layout.msg_port,null);
+        msg_judge=mainActivity.inflater.inflate(R.layout.msg_judge,null);
         initFont();
     }
 
@@ -44,6 +45,29 @@ public final class MessageViewManager extends ViewManager {
         tf=Typeface.createFromAsset(mgr, "fonts/xjlFont.fon");
         ((TextView)msg_opt.findViewById(R.id.msg_username)).setTypeface(tf);
         ((TextView)msg_text.findViewById(R.id.msg_text_content)).setTypeface(tf);
+        ((TextView)msg_judge.findViewById(R.id.msg_judge_COST)).setTypeface(tf);
+        ((TextView)msg_judge.findViewById(R.id.msg_judge_cost)).setTypeface(tf);
+    }
+
+    public void show_judge_msg(Judger.Result result) {
+        initFunc();
+        if(result.star==3) {
+            msg_judge.findViewById(R.id.msg_judge_star1).setForeground(mainActivity.res.getDrawable(R.drawable.star));
+            msg_judge.findViewById(R.id.msg_judge_star2).setForeground(mainActivity.res.getDrawable(R.drawable.star));
+            msg_judge.findViewById(R.id.msg_judge_star3).setForeground(mainActivity.res.getDrawable(R.drawable.star));
+        } else if(result.star==2) {
+            msg_judge.findViewById(R.id.msg_judge_star1).setForeground(mainActivity.res.getDrawable(R.drawable.star));
+            msg_judge.findViewById(R.id.msg_judge_star2).setForeground(mainActivity.res.getDrawable(R.drawable.star));
+            msg_judge.findViewById(R.id.msg_judge_star3).setForeground(mainActivity.res.getDrawable(R.drawable.star_e));
+        } else {
+            msg_judge.findViewById(R.id.msg_judge_star1).setForeground(mainActivity.res.getDrawable(R.drawable.star_e));
+            msg_judge.findViewById(R.id.msg_judge_star2).setForeground(mainActivity.res.getDrawable(R.drawable.star_e));
+            msg_judge.findViewById(R.id.msg_judge_star3).setForeground(mainActivity.res.getDrawable(R.drawable.star_e));
+        }
+        ((TextView)msg_judge.findViewById(R.id.msg_judge_cost)).setText(Integer.toString(result.cost));
+        msg_content.removeAllViews();
+        msg_content.addView(msg_judge);
+        mainActivity.mContentView.addView(view);
     }
 
     public void show_text_msg(int msg_id) {
@@ -60,7 +84,17 @@ public final class MessageViewManager extends ViewManager {
     }
 
     public void show_option_msg() {
-        initFunc();
+        View.OnClickListener msg_back= new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainActivity.state.username=((EditText)msg_opt.findViewById(R.id.msg_input_name)).getText().toString();
+                ((FrameLayout)mainActivity.mContentView).removeView(view);
+                mainActivity.state.save();
+                mainActivity.hide();
+            }
+        };
+        view.findViewById(R.id.msg_back0).setOnClickListener(msg_back);
+        view.findViewById(R.id.msg_back1).setOnClickListener(msg_back);
         ((EditText)msg_opt.findViewById(R.id.msg_input_name)).setText(mainActivity.state.username);
         msg_content.removeAllViews();
         msg_content.addView(msg_opt);
@@ -130,8 +164,6 @@ public final class MessageViewManager extends ViewManager {
         View.OnClickListener msg_back= new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.state.username=((EditText)msg_opt.findViewById(R.id.msg_input_name)).getText().toString();
-                if(onBack!=null)onBack.accept(null);
                 ((FrameLayout)mainActivity.mContentView).removeView(view);
                 mainActivity.state.save();
                 mainActivity.hide();

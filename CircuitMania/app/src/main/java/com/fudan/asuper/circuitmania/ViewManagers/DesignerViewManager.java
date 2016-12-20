@@ -71,7 +71,7 @@ public class DesignerViewManager extends ViewManager {
             notGate.setPort(R.string.notgate_in,orGate,R.string.orgate_out);
             outPort.setPort(R.string.andgate_out,notGate,R.string.notgate_out);*/
             Judger judger=new Judger(this.mainActivity,0);
-            mainActivity.messageManager.show_text_msg(judger.judge(mission.standardComponent,inPort,mapcv.keySet(),outPort).toString());
+            mainActivity.messageManager.show_judge_msg(judger.judge(mission.standardComponent,inPort,mapcv.keySet(),outPort));
         });
         view.findViewById(R.id.dn_link).setOnClickListener(view->gotoStt(R.integer.dn_stt_link0, view.findViewById(R.id.dn_link)));
     }

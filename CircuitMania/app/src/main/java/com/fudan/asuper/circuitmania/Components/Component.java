@@ -15,8 +15,14 @@ public abstract class Component {
         components=new ArrayList<>();
         components.add(new NotGate());
         components.add(new OrGate());
-        components.add(new XorGate());
+        components.add(new NorGate());
         components.add(new AndGate());
+        components.add(new NandGate());
+        components.add(new XorGate());
+        components.add(new XnorGate());
+        components.add(new Mux1_2());
+        components.add(new Enc2_4());
+        components.add(new Dec2_4());
         components.add(new InPort(new NotGate()));
         components.add(new OutPort(new NotGate()));
     }
@@ -28,12 +34,14 @@ public abstract class Component {
     public int iconId;
     public int priorityId= R.integer.priority_none;
     public int descriptionID;
+    public int best;
 
     public Component() {
         inputComonent=new HashMap<>();
         inputPort=new HashMap<>();
         output=new HashMap<>();
         isOnTime=false;
+        best=100000;
     }
 
     public void update() {

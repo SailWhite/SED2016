@@ -1,54 +1,54 @@
 <resources>
     <string name="app_name">CircuitMania</string>
-    <string name="msg_help">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的帮助信息</string>
-    <string name="msg_about">关于信息</string>
+    <string name="msg_help">一个关卡制的数字逻辑电路设计游戏。玩家可以由简至繁，思考并设计一些常见的数字电路。\n设计器中，绿色块是全部输入，红色块是全部输出。\n每关通关后会得出消耗的功率（与之前关卡有关），给出星星，并解锁该关完成的元件。</string>
+    <string name="msg_about">FvZm5l9yT2y6RThBFi3U</string>
 
     <string name="notgate_in">输入</string>
     <string name="notgate_out">输出</string>
-    <string name="notgate_desc">NOT</string>
+    <string name="notgate_desc">非门</string>
 
     <string name="andgate_a">a</string>
     <string name="andgate_b">b</string>
     <string name="andgate_out">输出</string>
-    <string name="andgate_desc">AND</string>
+    <string name="andgate_desc">与门\n输入a,b\n输出a &amp; b</string>
 
     <string name="orgate_a">a</string>
     <string name="orgate_b">b</string>
     <string name="orgate_out">输出</string>
-    <string name="orgate_desc">OR</string>
+    <string name="orgate_desc">或门\n输入a,b\n输出a | b</string>
 
     <string name="norgate_a">a</string>
     <string name="norgate_b">b</string>
     <string name="norgate_out">输出</string>
-    <string name="norgate_desc">NOR</string>
+    <string name="norgate_desc">或非门\n输入a,b\n输出!(a | b)</string>
 
     <string name="nandgate_a">a</string>
     <string name="nandgate_b">b</string>
     <string name="nandgate_out">输出</string>
-    <string name="nandgate_desc">NAND</string>
+    <string name="nandgate_desc">与非门\n输入a,b\n输出!(a &amp; b)</string>
 
     <string name="xnorgate_a">a</string>
     <string name="xnorgate_b">b</string>
     <string name="xnorgate_out">输出</string>
-    <string name="xnorgate_desc">XNOR</string>
+    <string name="xnorgate_desc">同或门\n输入a,b\n输出!(a ^ b)</string>
 
     <string name="mux_a">a</string>
     <string name="mux_b">b</string>
     <string name="mux_s">s</string>
     <string name="mux_out">输出</string>
-    <string name="mux_desc">1-2多路选择器</string>
+    <string name="mux_desc">1-2多路选择器\n输入a,b,s\n若s为0输出a，否则输出b</string>
 
     <string name="xorgate_a">a</string>
     <string name="xorgate_b">b</string>
     <string name="xorgate_out">输出</string>
-    <string name="xorgate_desc">XOR</string>
+    <string name="xorgate_desc">异或门\n输入a,b\n输出a ^ b</string>
 
     <string name="fulladder_a">a</string>
     <string name="fulladder_b">b</string>
     <string name="fulladder_cin">进位</string>
     <string name="fulladder_cout">进位</string>
     <string name="fulladder_s">和</string>
-    <string name="fulladder_desc">全加器</string>
+    <string name="fulladder_desc">全加器\n输入a,b,进位\n输出三者之和以及产生的进位</string>
 
     <string name="enc_d0">d0</string>
     <string name="enc_d1">d1</string>
@@ -56,7 +56,8 @@
     <string name="enc_d3">d3</string>
     <string name="enc_a0">a0</string>
     <string name="enc_a1">a1</string>
-    <string name="enc_desc">2-4优先编码器</string>
+    <string name="enc_err">err</string>
+    <string name="enc_desc">2-4编码器\n输入d0,d1,d2,d3\n若有且仅有d0激活\n    输出a0=0,a1=0\n若有且仅有d1激活\n    输出a0=0,a1=1\n若有且仅有d2激活\n    输出a0=1,a1=0\n若有且仅有d3激活\n    输出a0=1,a1=1\n否则置err为1且a0=a1=0</string>
 
     <string name="dec_d0">d0</string>
     <string name="dec_d1">d1</string>
@@ -64,7 +65,7 @@
     <string name="dec_d3">d3</string>
     <string name="dec_a0">a0</string>
     <string name="dec_a1">a1</string>
-    <string name="dec_desc">2-4译码器</string>
+    <string name="dec_desc">2-4译码器\n输入a0,a1\n参考编码器输出正确的激活</string>
 
     <string name="in_desc">IN</string>
     <string name="out_desc">OUT</string>

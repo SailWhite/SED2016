@@ -15,6 +15,7 @@ public class XorGate extends Component {
         output.put(R.string.xorgate_out,0);
         priorityId=R.integer.priority_xor;
         descriptionID=R.string.xorgate_desc;
+        best=80;
     }
 
     @Override

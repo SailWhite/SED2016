@@ -15,6 +15,7 @@ public class NandGate extends Component {
         output.put(R.string.nandgate_out,0);
         priorityId=R.integer.priority_nand;
         descriptionID=R.string.nandgate_desc;
+        best=30;
     }
 
     @Override

@@ -25,7 +25,7 @@ public class FullAdder extends Component {
         int a=inputComonent.get(R.string.fulladder_a).getOutput(inputPort.get(R.string.fulladder_a));
         int b=inputComonent.get(R.string.fulladder_b).getOutput(inputPort.get(R.string.fulladder_b));
         int cin=inputComonent.get(R.string.fulladder_cin).getOutput(inputPort.get(R.string.fulladder_cin));
-        output.put(R.string.fulladder_s, (a+b)&1);
-        output.put(R.string.fulladder_cout, (a+b)&2);
+        output.put(R.string.fulladder_s, (a+b+cin)&1);
+        output.put(R.string.fulladder_cout, (a+b+cin)>>1);
     }
 }

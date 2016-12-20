@@ -8,9 +8,9 @@
     <integer name="priority_nand">400</integer>
     <integer name="priority_xor">500</integer>
     <integer name="priority_xnor">600</integer>
-    <integer name="priority_fulladder">700</integer>
-    <integer name="priority_mux1_2">800</integer>
-    <integer name="priority_end2_4">900</integer>
+    <integer name="priority_fulladder">800</integer>
+    <integer name="priority_mux1_2">700</integer>
+    <integer name="priority_enc2_4">900</integer>
     <integer name="priority_dec2_4">1000</integer>
 
     <integer name="dn_stt_none">0</integer>

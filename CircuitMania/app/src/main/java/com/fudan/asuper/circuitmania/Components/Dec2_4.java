@@ -7,21 +7,28 @@ import com.fudan.asuper.circuitmania.R;
  */
 
 public class Dec2_4 extends Component {
-    public XorGate() {
+    public Dec2_4() {
         super();
-        iconId= R.drawable.xor_gate;
-        inputPort.put(R.string.xorgate_a,0);
-        inputPort.put(R.string.xorgate_b,0);
-        output.put(R.string.xorgate_out,0);
-        priorityId=R.integer.priority_xor;
+        iconId= R.drawable.dec2_4;
+        inputPort.put(R.string.dec_a0,0);
+        inputPort.put(R.string.dec_a1,0);
+        output.put(R.string.dec_d0,0);
+        output.put(R.string.dec_d1,0);
+        output.put(R.string.dec_d2,0);
+        output.put(R.string.dec_d3,0);
+        priorityId=R.integer.priority_dec2_4;
         descriptionID=R.string.xorgate_desc;
     }
 
     @Override
     public void update() {
         super.update();
-        int a=inputComonent.get(R.string.xorgate_a).getOutput(inputPort.get(R.string.xorgate_a));
-        int b=inputComonent.get(R.string.xorgate_b).getOutput(inputPort.get(R.string.xorgate_b));
-        output.put(R.string.xorgate_out, a^b);
+        int a0=inputComonent.get(R.string.dec_a0).getOutput(inputPort.get(R.string.dec_a0));
+        int a1=inputComonent.get(R.string.dec_a1).getOutput(inputPort.get(R.string.dec_a1));
+        int t=1<<(a0+2*a1);
+        output.put(R.string.dec_d0, t&1);
+        output.put(R.string.dec_d1, (t>>1)&1);
+        output.put(R.string.dec_d2, (t>>2)&1);
+        output.put(R.string.dec_d3, (t>>3)&1);
     }
 }

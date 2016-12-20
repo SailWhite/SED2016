@@ -16,7 +16,8 @@ public class Enc2_4 extends Component {
         inputPort.put(R.string.enc_d3,0);
         output.put(R.string.enc_a0,0);
         output.put(R.string.enc_a1,0);
-        priorityId=R.integer.priority_end2_4;
+        output.put(R.string.enc_err,0);
+        priorityId=R.integer.priority_enc2_4;
         descriptionID=R.string.enc_desc;
     }
 
@@ -27,6 +28,9 @@ public class Enc2_4 extends Component {
         int d1=inputComonent.get(R.string.enc_d1).getOutput(inputPort.get(R.string.enc_d1));
         int d2=inputComonent.get(R.string.enc_d2).getOutput(inputPort.get(R.string.enc_d2));
         int d3=inputComonent.get(R.string.enc_d3).getOutput(inputPort.get(R.string.enc_d3));
-        output.put(R.string.enc_a0, );
+        int t=d0+d1*2+d2*4+d3*8;
+        output.put(R.string.enc_a0, (t==4 || t==8)?1:0);
+        output.put(R.string.enc_a1, (t==2 || t==8)?1:0);
+        output.put(R.string.enc_err, (t!=0 && t!=2 && t!=4 && t!=8)?1:0);
     }
 }

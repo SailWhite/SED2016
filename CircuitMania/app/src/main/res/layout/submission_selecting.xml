@@ -27,14 +27,17 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="3">
+        android:layout_height="match_parent">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:weightSum="3">
 
             <ImageView
@@ -44,12 +47,22 @@
                 android:id="@+id/sms_1_1"
                 android:layout_weight="1"/>
 
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/and_gate"
                 android:id="@+id/sms_1_2"
                 android:layout_weight="1"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
 
             <ImageView
                 android:layout_width="0dp"
@@ -59,11 +72,16 @@
                 android:layout_weight="1"/>
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"/>
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:weightSum="3">
 
             <ImageView
@@ -73,6 +91,11 @@
                 android:id="@+id/sms_1_4"
                 android:layout_weight="1"/>
 
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -80,41 +103,66 @@
                 android:id="@+id/sms_1_5"
                 android:layout_weight="1"/>
 
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/full_adder"
+                app:srcCompat="@drawable/mux1_2"
                 android:id="@+id/sms_1_6"
                 android:layout_weight="1"/>
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:weightSum="3">
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/mux1-2"
+                app:srcCompat="@drawable/full_adder"
                 android:id="@+id/sms_1_7"
                 android:layout_weight="1"/>
 
-            <ImageView
+            <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/enc2-4"
-                android:id="@+id/sms_1_8"
-                android:layout_weight="1"/>
+                android:layout_weight="0.1"/>
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/dec2-4"
+                app:srcCompat="@drawable/enc2_4"
+                android:id="@+id/sms_1_8"
+                android:layout_weight="1"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/dec2_4"
                 android:id="@+id/sms_1_9"
                 android:layout_weight="1"/>
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>
